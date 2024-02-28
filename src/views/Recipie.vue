@@ -34,7 +34,7 @@
             ></iframe>
           </div>
           <div class="bg-white w-full p-5 px-8 flex flex-col gap-5">
-            <p class="font-bold text-primary text-lg">instructions:</p>
+            <p class="font-bold text-primary text-lg">instructions :</p>
             <p class="text-primary text-sm leading-relaxed text-justify">
               {{ recipie.strInstructions }}
             </p>
