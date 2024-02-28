@@ -2,7 +2,7 @@
   <main class="w-full min-h-screen max-w-screen-lg sm:max-w-full">
     <navbar />
 
-    <section class="md:w-10/12 mx-auto flex flex-col gap-4 py-10 px-4">
+    <section class="md:w-10/12 mx-auto flex flex-col mt-10 gap-4 py-10 px-4">
       <div class="flex flex-col sm:flex-row gap-6 justify-between">
         <p class="text-sm md:text-2xl sm:text-xl font-semibold">
           What do you want to cook today?
@@ -29,10 +29,26 @@
             :key="receipe"
           />
         </div>
-        <div v-if="searcResult == false">
+        <div v-if="!load && recipeDetails == null">
           <p class="font-medium text-xl text-center">
             Result not found Please search by the name of the food!
           </p>
+        </div>
+
+        <div
+          v-if="load"
+          class="fixed top-0 left-0 w-full h-full bg-black/70 backdrop-blur-sm flex items-center justify-center z-50;"
+        >
+          <div class="flex gap-2 items-center">
+            <div
+              style="background: conic-gradient(#ff3c24 300deg, #4a4a4a 0deg)"
+              class="animate-spin w-12 h-12 rounded-full relative p-1.5"
+            >
+              <div class="h-full w-full rounded-full bg-black"></div>
+            </div>
+
+            <p class="text-white">loading...</p>
+          </div>
         </div>
       </div>
     </section>
@@ -59,8 +75,8 @@ const activeFilter = computed(() => route.query.filter);
 const filterOptions = ref(false);
 const filterData = ref([]);
 const recipeDetails = ref([]);
-const searcResult = ref(true);
 const searchText = ref("");
+const load = ref(false);
 
 console.log(recipeDetails.value);
 
@@ -125,6 +141,7 @@ const getrecipeData = async (activeItem) => {
 
 const searchMeal = async () => {
   if (searchText.value.trim()) {
+    load.value = true;
     try {
       const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchText.value}`;
 
@@ -135,12 +152,7 @@ const searchMeal = async () => {
       console.log(res.data);
 
       recipeDetails.value = res.data.meals;
-      if (recipeDetails.value == null) {
-        searcResult.value = true;
-        console.log(res.data.meals, "check1");
-      }
-      console.log(recipeDetails.value, "check");
-      searcResult.value = false;
+      load.value = false;
     } catch (error) {
       console.log(error);
     } finally {

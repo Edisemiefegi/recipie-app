@@ -1,5 +1,7 @@
 <template>
-  <div class="w-full sm:w-2/5 flex border border-primary rounded-3xl p-2">
+  <div
+    class="w-full sm:w-2/5 flex justify-between border border-primary rounded-3xl p-2"
+  >
     <input
       type="text"
       name=""
@@ -9,7 +11,7 @@
       placeholder="search.."
       class="outline-none px-7 w-3/4 text-sm placeholder:text-primary-light"
     />
-    <div class="w-2/12">
+    <div class="w-1/12">
       <i class="pi pi-search text-primary text-end" @click="Search"></i>
     </div>
   </div>

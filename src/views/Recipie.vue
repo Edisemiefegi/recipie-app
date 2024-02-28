@@ -1,12 +1,18 @@
 <template>
   <main class="h-fit w-screen bg-primary-light border">
     <div v-if="recipie">
-      <div class="h-[330px] w-full">
+      <div class="h-[330px] w-full relative">
         <img
           :src="recipie.strMealThumb"
           class="w-full h-full object-cover rounded-b-3xl relative"
           alt=""
         />
+        <div class="p-3 rounded-full fixed top-5 left-5 bg-white">
+          <i
+            @click="goToDashboard"
+            class="pi pi-arrow-left font-bold text-2xl text-primary cursor-pointer"
+          ></i>
+        </div>
       </div>
       <div
         class="w-96 bg-white p-5 text-primary text-center rounded-lg absolute top-72 -translate-x-2/4 left-1/2"
@@ -49,12 +55,17 @@
 <script setup>
 import { onMounted, ref } from "vue";
 import axios from "axios";
-import { useRoute } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 
 const route = useRoute();
+const router = useRouter();
 
 const recipie = ref(null);
 const ingredients = ref([]);
+
+const goToDashboard = () => {
+  router.push({ name: "Dashboard" });
+};
 
 const getrecipeData = async () => {
   try {

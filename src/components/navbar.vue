@@ -1,11 +1,13 @@
 <template>
-  <nav class="w-full p-3 bg-primary-light flex justify-center items-center">
+  <nav
+    class="w-full fixed top-0 p-3 z-10 bg-primary-light flex justify-center items-center"
+  >
     <div class="mx-auto md:w-10/12 w-full flex justify-between">
       <p class="text-primary text-xl font-bold">
         Edi<span class="text-white">Recipes</span>
       </p>
       <div
-        class="flex justify-between text-primary w-1/3 sm:w-1/6 text-sm font-medium"
+        class="flex justify-between text-primary w-1/4 sm:w-2/12 text-sm font-medium"
       >
         <div class="relative">
           <button class="hover:underline" @click="toggledropdown">
