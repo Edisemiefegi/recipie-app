@@ -1,5 +1,5 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
-import Home from './views/Home.vue';
+import Home from './views/home.vue';
 import Dashboard from './views/Dashboard.vue'; // Import your Vue components
 import Recipie from './views/Recipie.vue'; // Import your Vue components
 
