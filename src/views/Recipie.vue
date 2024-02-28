@@ -21,7 +21,7 @@
         <p>{{ recipie.strArea }}</p>
       </div>
       <div class="">
-        <div class="w-3/4 mx-auto py-20 flex gap-5 flex-col">
+        <div class="w-11/12 sm:w-10/12 mx-auto py-20 flex gap-5 flex-col">
           <div class="flex flex-wrap gap-2">
             <div v-for="(ingredient, i) in ingredients" :key="i">
               <p class="list-disc bg-primary p-2 text-white text-sm rounded-lg">

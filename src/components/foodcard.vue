@@ -3,21 +3,16 @@
     <div
       class="flex flex-col rounded-xl w-full gap-2 p-3 shadow-lg flex-shrink-0"
     >
-      <div class="w-full h-40 relative">
+      <div class="w-full h-40" @click="getItemRecipie">
         <img
           :src="props.recipeDetails.strMealThumb"
-          class="object-cover h-full w-full rounded-md"
+          class="object-cover h-full w-full rounded-md cursor-pointer"
           alt=""
         />
-        <div
-          @click="getItemRecipie"
-          class="absolute rounded-md inset-0 cursor-pointer bg-black opacity-0 hover:opacity-50 transition-opacity duration-300"
-        ></div>
       </div>
       <p class="font-medium text-sm cursor-pointer" @click="getItemRecipie">
         {{ recipeDetails.strMeal }}
       </p>
-      <p class="text-xs text-primary">20min</p>
     </div>
   </div>
 </template>
