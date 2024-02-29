@@ -13,6 +13,7 @@
       <p class="font-medium text-sm cursor-pointer" @click="getItemRecipie">
         {{ recipeDetails.strMeal }}
       </p>
+      <p class="text-xs text-primary">{{ randomeTime() }}min</p>
     </div>
   </div>
 </template>
@@ -38,6 +39,10 @@ const getItemRecipie = () => {
     params: { id: `${props.recipeDetails.idMeal}` },
   });
   emit("recipieId");
+};
+
+const randomeTime = (start = 5, end = 30) => {
+  return Math.floor(Math.random() * (end - start)) + start;
 };
 </script>
 

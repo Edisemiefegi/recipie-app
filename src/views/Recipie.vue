@@ -48,7 +48,9 @@
         </div>
       </div>
     </div>
-    <div v-else>Something went wrong</div>
+    <div v-else>
+      <loadercard />
+    </div>
   </main>
 </template>
 
@@ -56,6 +58,7 @@
 import { onMounted, ref } from "vue";
 import axios from "axios";
 import { useRoute, useRouter } from "vue-router";
+import loadercard from "../components/loadercard.vue";
 
 const route = useRoute();
 const router = useRouter();
