@@ -75,6 +75,8 @@ const filterType = ref({
 });
 
 const getFilterData = async () => {
+  load.value = true;
+
   try {
     let type = filterType.value[activeFilter.value];
 
@@ -99,6 +101,8 @@ const getFilterData = async () => {
       const firstFilterItem = filterData.value[0].name;
       getrecipeData(firstFilterItem);
     }
+    load.value = false;
+
     // console.log(filterData.value);
   } catch (error) {
     console.log(error);
